@@ -1,0 +1,6 @@
+Metric Class,Precision,Recall,F1-Score,Support
+Dropped/Canceled Journey,0.63,0.55,0.59,1444
+Successful Conversion,0.6,0.68,0.63,1556
+Accuracy,,,0.61,3000
+Macro Avg,0.61,0.61,0.61,3000
+Weighted Avg,0.61,0.61,0.61,3000
