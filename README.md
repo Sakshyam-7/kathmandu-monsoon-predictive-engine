@@ -91,27 +91,54 @@ kathmandu-monsoon-predictive-engine/
     └── statistical_results.csv # Saved Z-statistic and hypothesis testing results
 
  ```
+
 ## ⚙️ Installation & Running Locally
 
 ### 1. Clone the Repository
+```bash
 git clone [https://github.com/Sakshyam-7/kathmandu-monsoon-predictive-engine.git](https://github.com/Sakshyam-7/kathmandu-monsoon-predictive-engine.git)
 cd kathmandu-monsoon-predictive-engine
-2. Install Project Dependencies
-pip install -r requirements.txt
-3. Launch the Application Interface
-Bash
-streamlit run app.py
-The interface will automatically boot up inside your local web browser workspace at: http://localhost:8501
-📷 Production Dashboard Preview
-Integrated Desktop Workspace
-Below is the clean desktop view of the final application layout. It cleanly integrates structural controls, real-time metrics, heatmaps, and the live behavioral prediction engine simulator:
-💼 Portfolio Highlights Demonstrated
--- Modular Pipeline Architecture: Clean separation of data assets (data/), model weights (models/), exploratory code (notebooks/), and visual frontends (app.py).
--- Statistical Rigor: Moving beyond simple visualizations into hypothesis verification ($Z$-tests and confidence boundary calculations).
--- Binary Serialization Deployment: Offloading resource-intensive model training loops into an offline file asset for optimized cloud execution.
 
-👨‍💻 Author
-Sakshyam Bhandari Computer Engineering Student | Emerging Data & Business Analyst
--- Technical Core: Python, SQL, Machine Learning, Statistical Inference, Advanced Excel, Power BI, Streamlit.
--- Connect with Me: https://www.linkedin.com/in/sakshyam-bhandari/ | .
-If you found this technical implementation compelling, please consider leaving a ⭐ star on this GitHub repository to support my engineering journey!  
+### Piece 3: Press Enter twice, then copy and paste this
+```markdown
+### 2. Install Project Dependencies
+```bash
+pip install -r requirements.txt
+
+### Piece 4: Press Enter twice, then copy and paste this
+```markdown
+### 3. Launch the Application Interface
+```bash
+streamlit run app.py
+
+### Piece 5: Press Enter twice, then copy and paste this
+```markdown
+The interface will automatically boot up inside your local web browser workspace at: `http://localhost:8501`
+
+---
+```
+## 📷 Production Dashboard Preview
+
+### Integrated Desktop Workspace
+Below is the clean desktop view of the final application layout. It cleanly integrates structural controls, real-time metrics, heatmaps, and the live behavioral prediction engine simulator:
+
+![Desktop Dashboard Interface](images/dashboard_home.png)
+
+---
+
+## 💼 Portfolio Highlights Demonstrated
+* **Modular Pipeline Architecture:** Clean separation of data assets (`data/`), model weights (`models/`), exploratory code (`notebooks/`), and visual frontends (`app.py`).
+* **Statistical Rigor:** Moving beyond simple visualizations into hypothesis verification ($Z$-tests and confidence boundary calculations).
+* **Binary Serialization Deployment:** Offloading resource-intensive model training loops into an offline file asset for optimized cloud execution.
+
+---
+
+## 👨‍💻 Author
+**Sakshyam Bhandari** *Computer Engineering Student | Emerging Data & Business Analyst*
+
+* **Technical Core:** Python, SQL, Machine Learning, Statistical Inference, Advanced Excel, Power BI, Streamlit.
+* **Connect with Me:** [LinkedIn](https://www.linkedin.com/in/sakshyam-bhandari/) | [GitHub Profile](https://github.com/Sakshyam-7)
+
+***
+
+*If you found this technical implementation compelling, please consider leaving a ⭐ star on this GitHub repository to support my engineering journey!*
