@@ -130,6 +130,7 @@ if st.sidebar.button("🔮 Run AI Prediction"):
                 if f'Payment_Method_{alternative_payment}' in optimized_data.columns:
                     optimized_data[f'Payment_Method_{alternative_payment}'] = 1
                 
+                # Extract optimization metric probabilities
                 opt_prob = model.predict_proba(optimized_data)[0][1] * 100
                 st.info(f"🛠️ **AI Optimization Recommendation:** Nudging this specific booking segment to settle fares via **{alternative_payment}** boosts fulfillment likelihood to **{opt_prob:.1f}%** (an optimization margin of +{opt_prob - completion_prob:.1f}%).")
             
@@ -169,14 +170,29 @@ with chart_col1:
     st.pyplot(fig1)
 
 with chart_col2:
-    st.subheader("Weather vs. Completion Rate (Baseline View)")
-    weather_comp = df.groupby('Weather')['Is_Completed'].mean() * 100
+    st.subheader(f"Weather vs. Completion Rate ({weather_filter} View)")
+    
+    # RESPONSIVE FIX: Group by 'filtered_df' instead of structural database constants
+    weather_comp = filtered_df.groupby('Weather')['Is_Completed'].mean() * 100
+    
     fig2, ax2 = plt.subplots(figsize=(6, 4.5))
-    colors = ['#2ca02c', '#bcbd22', '#d62728'][:len(weather_comp)]
-    weather_comp.plot(kind='bar', color=colors, ax=ax2, zorder=2)
+    
+    # COLOR PROTECTION: Retain static color themes whether plotting isolated profiles or baseline records
+    color_mapping = {
+        'Clear': '#2ca02c',
+        'Cloudy': '#bcbd22',
+        'Heavy Monsoon Rain': '#d62728'
+    }
+    active_colors = [color_mapping.get(weather, '#1f77b4') for weather in weather_comp.index]
+    
+    bars = weather_comp.plot(kind='bar', color=active_colors, ax=ax2, zorder=2)
+    
+    # DATA LABEL ADDITION: Automatically map precise values directly over the target bars
+    ax2.bar_label(ax2.containers[0], fmt='%.2f%%', padding=3, fontsize=10, weight='bold')
+    
     ax2.set_ylabel("Completion Rate (%)")
     ax2.set_xlabel("Weather Condition")
-    ax2.set_ylim(0, 100)
+    ax2.set_ylim(0, 115)  # Extended headroom prevents upper layout truncation issues
     ax2.grid(axis='y', linestyle='--', alpha=0.5, zorder=1)
     plt.xticks(rotation=15)
     st.pyplot(fig2)
@@ -252,7 +268,7 @@ with geo_col2:
     st.info("💡 **Operational Recommendation:** When severe localized monsoon notifications cross reference these specific pickup bubbles, deploy dynamic micro-surges to protect fleet availability stability thresholds.")
 
 # =====================================================================
-# 💡 NEW ROW 4: AI EXPLAINABILITY & MODEL PERFORMANCE METRICS
+# 9. AI EXPLAINABILITY & MODEL PERFORMANCE METRICS
 # =====================================================================
 st.markdown("---")
 st.subheader("🧠 ML Engine Transparency & Behavioral Drivers")
@@ -261,7 +277,6 @@ explain_col1, explain_col2 = st.columns(2)
 
 with explain_col1:
     st.write("#### Feature Importance Profile (What Drives the AI's Predictions)")
-    # Extract structural decision indices from trained Random Forest Model
     importances = model.feature_importances_
     feat_importances = pd.Series(importances, index=model_columns).sort_values(ascending=True).tail(10)
     
@@ -275,7 +290,6 @@ with explain_col1:
 
 with explain_col2:
     st.write("#### Comprehensive Model Evaluation Profile")
-    # Wrap standard classification metrics in an expandable clean tab segment
     with st.expander("🔬 View Detailed Evaluation Summary Report (Precision/Recall Matrix)"):
         from sklearn.metrics import classification_report
         
@@ -288,7 +302,6 @@ with explain_col2:
         report_dict = classification_report(y_test_eval, y_pred_eval, output_dict=True)
         report_df = pd.DataFrame(report_dict).transpose()
         
-        # Clean naming maps for index rows to make presentation polished
         report_df.rename(index={'0': 'Dropped/Canceled Journey', '1': 'Successful Conversion'}, inplace=True)
         
         st.dataframe(report_df.style.format("{:.3f}"), use_container_width=True)
