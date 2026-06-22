@@ -1,26 +1,33 @@
 # 🌧️ Advanced Kathmandu Monsoon Ride Analytics & Prediction Engine
 
+🌐 **Live Deployed Application:** [Kathmandu Monsoon Predictive Engine Link](https://kathmandu-monsoon-predictive-engine.streamlit.app/)
+
+---
+
 ## 📌 Overview
-**Kathmandu Monsoon Predictive Engine** is an end-to-end Data Science and Machine Learning engineering project designed to analyze and optimize ride-sharing fulfillment performance under challenging monsoon conditions in Kathmandu, Nepal. 
 
-The system combines rigorous statistical modeling, historical weather shock hypothesis testing, and a pre-trained machine learning pipeline hooked into an interactive business intelligence desktop dashboard. This allows platform operators to identify severe environmental bottlenecks and predict fulfillment probabilities *before* a ride is dispatched.
+**Kathmandu Monsoon Predictive Engine** is an end-to-end Data Science and Machine Learning engineering project designed to analyze and optimize ride-sharing fulfillment performance under challenging monsoon conditions in Kathmandu, Nepal.
 
-Built using **Python, Scikit-Learn, StatsModels, and Streamlit**, this repository demonstrates a complete production-grade data engineering workflow—advancing from exploratory notebooks to a modular, deployment-ready asset structure.
+The system combines rigorous statistical modeling, historical weather shock hypothesis testing, and a pre-trained machine learning pipeline hooked into an interactive business intelligence dashboard. This allows platform operators to identify severe environmental bottlenecks and predict fulfillment probabilities before a ride is dispatched.
+
+Built using Python, Scikit-Learn, StatsModels, and Streamlit, this repository demonstrates a complete production-grade data engineering workflow—advancing from exploratory notebooks to a modular, deployment-ready asset structure.
 
 ---
 
 ## 🎯 Business Problem
-Urban mobility and ride-sharing networks operating in Kathmandu face severe operational drops during the annual monsoon season. Overlapping factors such as:
-* Sudden heavy rainfall downpours
-* High-risk traffic bottleneck zones
-* Severe peak-hour traffic gridlock
-* Digital payment gateway transaction friction
 
-These factors combine to drive up ride cancellation rates, strand drivers, and degrade platform revenue. This engine inspects these factors to provide predictive dispatch capabilities and data-driven operational strategies.
+Urban mobility and ride-sharing networks operating in Kathmandu face severe operational drops during the annual monsoon season. Overlapping risk factors include:
+* 🌧️ **Sudden Heavy Rainfall Downpours:** Drastically lowering structural fleet supply.
+* 🚦 **High-Risk Traffic Bottleneck Zones:** Causing severe local localization delays.
+* ⏰ **Peak-Hour Traffic Gridlock:** Compounding spatial constraints during office commute windows.
+* 💳 **Digital Payment Gateway Friction:** Spiking transaction timeouts and settlement dropouts.
+
+These factors combine to drive up ride cancellation rates, strand riders, and degrade platform revenue. This engine inspects these factors to provide predictive dispatch capabilities and data-driven operational strategies.
 
 ---
 
 ## 📊 Project Objectives
+
 * **Quantify Weather Shock:** Measure the statistical significance of monsoon downpours vs. clear skies on completion metrics.
 * **Map Situational Gridlocks:** Evaluate the combined, multi-variable impact of peak-hour traffic and known bottleneck sectors.
 * **Surface Transaction Friction:** Audit payment methods to calculate confidence intervals for failure risks.
@@ -38,10 +45,10 @@ These factors combine to drive up ride cancellation rates, strand drivers, and d
 
 ### Phase 2: Weather Shock Impact Analysis
 * **Objective:** Confirm if adverse weather drops ride fulfillment beyond normal variance.
-* **Statistical Method:** Two-Proportion $Z$-Test.
+* **Statistical Method:** Two-Proportion Z-Test.
 * **Empirical Results:**
-  * **$Z$-Statistic:** `28.54`
-  * **$P$-Value:** `< 0.001`
+  * **Z-Statistic:** 28.54
+  * **P-Value:** < 0.001
 * **Conclusion:** Highly significant. Reject the Null Hypothesis. Weather changes fundamentally dictate operational constraints.
 
 ### Phase 3: Situational Gridlock Matrix Analysis
@@ -50,11 +57,12 @@ These factors combine to drive up ride cancellation rates, strand drivers, and d
 
 ### Phase 4: AI Dispatch Prediction Engine
 * **Machine Learning Model:** Random Forest Classifier (`sklearn.ensemble`).
-* **Deployment Optimization:** The model is fully trained off-line inside the research sandbox and serialized to a standalone binary file (`models/random_forest_model.pkl`) using Python's `pickle` library, bypassing runtime training overhead in production.
+* **Deployment Optimization:** The model is fully trained off-line inside the research sandbox and serialized to a standalone binary file (`models/random_forest_model.pkl`) using Python's pickle library, bypassing runtime training overhead in production.
 
 ---
 
 ## 🛠️ Technology Stack
+
 * **Programming & Core Engine:** Python
 * **Data Transformation & Matrix Arrays:** Pandas, NumPy
 * **Statistical Inference Modeling:** SciPy (Stats), StatsModels
@@ -65,7 +73,6 @@ These factors combine to drive up ride cancellation rates, strand drivers, and d
 ---
 
 ## 📂 Project Structure
-The repository is systematically organized according to production-level standards:
 
 ```text
 kathmandu-monsoon-predictive-engine/
@@ -99,20 +106,15 @@ kathmandu-monsoon-predictive-engine/
 git clone [https://github.com/Sakshyam-7/kathmandu-monsoon-predictive-engine.git](https://github.com/Sakshyam-7/kathmandu-monsoon-predictive-engine.git)
 cd kathmandu-monsoon-predictive-engine
 
-### Piece 3: Press Enter twice, then copy and paste this
-```markdown
+
 ### 2. Install Project Dependencies
 ```bash
 pip install -r requirements.txt
 
-### Piece 4: Press Enter twice, then copy and paste this
-```markdown
 ### 3. Launch the Application Interface
 ```bash
 streamlit run app.py
 
-### Piece 5: Press Enter twice, then copy and paste this
-```markdown
 The interface will automatically boot up inside your local web browser workspace at: `http://localhost:8501`
 
 ---
